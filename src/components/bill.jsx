@@ -1,12 +1,18 @@
-export default function Bill({ input, onInput }) {
+export default function Bill({ input, onInput, maxAmount }) {
   return (
     <div className="input-container">
-      <label htmlFor="">Bill</label>
+      <label htmlFor="bill">
+        Bill
+        <span className="max-amount">
+          {maxAmount ? "Max amount is 1000000" : ""}
+        </span>
+      </label>
       <input
-        type="text"
+        type="number"
         placeholder="0"
         value={input}
-        onChange={(e) => onInput(Number(e.target.value))}
+        onChange={onInput}
+        id="bill"
       />
       <img src="images/icon-dollar.svg" alt="dollar" />
     </div>

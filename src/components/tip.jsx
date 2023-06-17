@@ -1,7 +1,7 @@
-export default function Tip({ onTip, children }) {
+export default function Tip({ onTip, children, num, tip }) {
   return (
-    <li className="tip" onClick={onTip}>
+    <button className={tip === num ? "tip active" : "tip"} onClick={onTip}>
       {children}%
-    </li>
+    </button>
   );
 }

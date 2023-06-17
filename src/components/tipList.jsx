@@ -1,22 +1,32 @@
 import Tip from "./tip";
 
-export default function TipList({ onTip, onCustomTip }) {
+export default function TipList({ onTip, onCustomTip, tip }) {
   return (
     <div className="tip-list-container">
       <h2>Select Tip %</h2>
-      <ul className="tip-list">
-        <Tip onTip={onTip}>5</Tip>
-        <Tip onTip={onTip}>10</Tip>
-        <Tip onTip={onTip}>15</Tip>
-        <Tip onTip={onTip}>25</Tip>
-        <Tip onTip={onTip}>50</Tip>
+      <div className="tip-list">
+        <Tip num={5} onTip={onTip} tip={tip}>
+          5
+        </Tip>
+        <Tip num={10} onTip={onTip} tip={tip}>
+          10
+        </Tip>
+        <Tip num={15} onTip={onTip} tip={tip}>
+          15
+        </Tip>
+        <Tip num={25} onTip={onTip} tip={tip}>
+          25
+        </Tip>
+        <Tip num={50} onTip={onTip} tip={tip}>
+          50
+        </Tip>
         <input
           className="custom"
-          type="text"
+          type="number"
           placeholder="Custom"
           onChange={onCustomTip}
         ></input>
-      </ul>
+      </div>
     </div>
   );
 }

@@ -5,13 +5,14 @@ import People from "./people";
 import { useState } from "react";
 
 export default function Main() {
-  const [bill, setBill] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [bill, setBill] = useState(null);
+  const [people, setPeople] = useState(null);
   const [tip, setTip] = useState(0);
   const [error, setError] = useState(false);
+  const [maxAmount, setMaxAmount] = useState(false);
 
   function handleTip(e) {
-    if (people === 0) {
+    if (people === null) {
       setError(true);
       return;
     }
@@ -27,6 +28,21 @@ export default function Main() {
     setError(false);
   }
 
+  function handleBill(e) {
+    // setBill(Number(e.target.value) > 1000000 ? bill : Number(e.target.value) )
+    Number(e.target.value) > 1000000
+      ? setBill(bill) && setMaxAmount(true)
+      : setBill(Number(e.target.value));
+
+    Number(e.target.value) > 1000000 ? setMaxAmount(true) : setMaxAmount(false);
+    // if (Number(e.target.value) > 1000000) {
+    //   setMaxAmount(true);
+    //   setBill(bill);
+    // }
+    // setBill(Number(e.target.value));
+    // setMaxAmount(false);
+  }
+
   function handleReset() {
     setTip(0);
     setPeople(0);
@@ -35,9 +51,9 @@ export default function Main() {
   return (
     <main className="main">
       <div className="main-left">
-        <Bill input={bill} onInput={setBill} />
+        <Bill input={bill} onInput={handleBill} maxAmount={maxAmount} />
 
-        <TipList onTip={handleTip} onCustomTip={handleCustomTip} />
+        <TipList onTip={handleTip} onCustomTip={handleCustomTip} tip={tip} />
 
         <People input={people} onInput={handleNumberOfPeople} error={error} />
       </div>

@@ -5,10 +5,10 @@ export default function DisplayTotal({ tip, bill, people, onReset }) {
   const totalAmount = bill + totalTip;
   const totalAmountPerPerson = (totalAmount / people).toFixed(2);
   console.log(totalTipPerPerson);
-  console.log(totalAmountPerPerson);
+  console.log(totalAmount);
   return (
     <div className="main-right">
-      <div>
+      <div className="main-info-container">
         <div className="main-info">
           <div>
             <p className="total-text">Tip Amount</p>
@@ -27,7 +27,7 @@ export default function DisplayTotal({ tip, bill, people, onReset }) {
           </div>
 
           <div className="total">
-            ${people === 0 ? "0.00" : totalAmountPerPerson}
+            ${people === null ? "0.00" : totalAmountPerPerson}
           </div>
         </div>
       </div>

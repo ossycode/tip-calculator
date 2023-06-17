@@ -40,15 +40,7 @@ header {
   align-items: center;
   margin-bottom: 5.49rem;
 }
-header h1 {
-  text-transform: uppercase;
-  /* color: hsl(183, 100%, 15%); */
-  color: #3d6666;
-  font-size: 1.5rem;
-  letter-spacing: 1.1rem;
-  word-wrap: break-word;
-  max-width: 10rem;
-}
+
 .container {
   width: 100%;
 }
@@ -61,6 +53,8 @@ header h1 {
   gap: 3rem;
   max-width: max-content;
   margin: 0 auto;
+
+  justify-content: center;
 }
 
 .main-left {
@@ -69,7 +63,7 @@ header h1 {
   color: hsl(186, 14%, 43%);
   font-size: 1rem;
   line-height: 1.5rem;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .main-right {
@@ -79,7 +73,7 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 8.3125rem;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .input-container {
@@ -96,8 +90,8 @@ header h1 {
 
 .input-container input {
   padding-right: 1rem;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   background-color: hsl(189, 41%, 97%);
   border: none;
   border-radius: 0.3125rem;
@@ -107,6 +101,17 @@ header h1 {
   line-height: 2.25rem;
   text-align: right;
   color: #00474b;
+  padding: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .input-container input:focus {
@@ -128,10 +133,7 @@ header h1 {
 
 .tip {
   background-color: hsl(183, 100%, 15%);
-  list-style: none;
   cursor: pointer;
-  /* width: 7.312rem;
-  height: 3rem; */
   border-radius: 0.3125rem;
   padding: 0.5rem 0rem;
   font-size: 1.5rem;
@@ -141,6 +143,7 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
 }
 
 .tip-list-container {
@@ -168,17 +171,23 @@ header h1 {
   color: hsl(0, 0%, 100%);
   font-size: 1rem;
   line-height: 1.5rem;
+  width: max-content;
 }
 .total {
-  font-size: 3rem;
+  font-size: minmax(1rem, 3rem);
   letter-spacing: -1px;
   line-height: 4.4375rem;
   color: hsl(172, 67%, 45%);
+  width: 10.75rem;
+}
+.main-info-container {
+  max-width: 100%;
 }
 .total-text-span {
   display: block;
   font-size: 0.8125rem;
   line-height: 1.1875rem;
+  width: max-content;
 }
 
 .reset-btn-disabled {
@@ -208,6 +217,10 @@ header h1 {
   cursor: pointer;
 }
 
+.tip.active {
+  background-color: #26c2ae;
+}
+
 .tip:hover,
 .reset-btn:hover {
   background-color: #9fe8df;
@@ -235,7 +248,8 @@ header h1 {
   outline: 2px solid hsl(172, 67%, 45%);
 }
 
-.error {
+.error,
+.max-amount {
   color: #e17457;
   float: right;
   text-align: right;
@@ -289,8 +303,11 @@ header h1 {
 }
 @media only screen and (max-width: 75em) {
   .total {
-    font-size: 2rem;
+    font-size: clamp(0.8rem, 0.5rem + 4vw, 2rem);
     line-height: 2.9375rem;
     letter-spacing: -0.666667px;
+  }
+  .main {
+    flex-wrap: wrap;
   }
 }
