@@ -261,6 +261,7 @@ input[type="number"] {
 
 @media only screen and (max-width: 75em) {
   .total {
+    font-size: clamp(0.8rem, 0.5rem + 4vw, 2rem);
     line-height: 2.9375rem;
     letter-spacing: -0.666667px;
   }
