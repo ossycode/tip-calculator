@@ -174,7 +174,7 @@ input[type="number"] {
   width: max-content;
 }
 .total {
-  font-size: minmax(1rem, 3rem);
+  font-size: 2rem;
   letter-spacing: -1px;
   line-height: 4.4375rem;
   color: hsl(172, 67%, 45%);
@@ -259,6 +259,16 @@ input[type="number"] {
   outline: 2px solid #e17052;
 }
 
+@media only screen and (max-width: 75em) {
+  .total {
+    line-height: 2.9375rem;
+    letter-spacing: -0.666667px;
+  }
+  .main {
+    flex-wrap: wrap;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
   body {
     margin-block: 0px;
@@ -299,15 +309,5 @@ input[type="number"] {
   }
   .main-info:not(:first-of-type) {
     margin-top: 2.5625rem;
-  }
-}
-@media only screen and (max-width: 75em) {
-  .total {
-    font-size: clamp(0.8rem, 0.5rem + 4vw, 2rem);
-    line-height: 2.9375rem;
-    letter-spacing: -0.666667px;
-  }
-  .main {
-    flex-wrap: wrap;
   }
 }
